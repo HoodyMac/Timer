@@ -7,6 +7,8 @@ angular.module('timerApp', [])
     // Greetings
     notify('Hey yo pigeon');
 
+
+
     $scope.editValue = function(value, number) {
       switch(value) {
         case 'hours':
@@ -93,7 +95,8 @@ angular.module('timerApp', [])
     function notify(text) {
       var voices = speechSynthesis.getVoices();
       var utterance = new SpeechSynthesisUtterance(text);
-      utterance.voice = voices[1];
+      console.log(voices);
+      utterance.voice = voices[2];
       speechSynthesis.speak(utterance);
     }
   })
@@ -110,4 +113,4 @@ angular.module('timerApp', [])
             }
             return num;
         };
-    });;
+    });
