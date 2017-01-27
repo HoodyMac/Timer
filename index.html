@@ -1,30 +1,37 @@
 <!DOCTYPE html5>
-<html>
+<html ng-app="timerApp">
   <head>
+    <link rel="stylesheet" type="text/css" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/script.js"></script>
     <title>Timer</title>
   </head>
-  <body>
-    <h3>It works, is it?</h3>
+  <body ng-cloak ng-controller="TimerController">
     <div id="clockdiv">
-    <div>
-      <span class="days"></span>
-      <div class="smalltext">Days</div>
+      <div>
+        <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('hours', 1)"></i><br>
+        <span class="hours">{{hours | numberFixedLen: 2}}</span><br>
+        <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('hours', -1)"></i>
+        <div class="smalltext">Hours</div>
+      </div>
+      <div>
+        <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('minutes', 1)"></i><br>
+        <span class="minutes">{{minutes | numberFixedLen: 2}}</span><br>
+        <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('minutes', -1)"></i>
+        <div class="smalltext">Minutes</div>
+      </div>
+      <div>
+        <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('seconds', 1)"></i><br>
+        <span class="seconds">{{seconds | numberFixedLen: 2}}</span><br>
+        <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('seconds', -1)"></i>
+        <div class="smalltext">Seconds</div>
+      </div>
+      <div class="controls">
+        <button ng-click="initializeClock()">Start</button>
+      </div>
     </div>
-    <div>
-      <span class="hours"></span>
-      <div class="smalltext">Hours</div>
-    </div>
-    <div>
-      <span class="minutes"></span>
-      <div class="smalltext">Minutes</div>
-    </div>
-    <div>
-      <span class="seconds"></span>
-      <div class="smalltext">Seconds</div>
-    </div>
-  </div>
-</div>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
