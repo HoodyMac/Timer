@@ -26,18 +26,26 @@ h1{
 #clockdiv > div{
     padding: 10px;
     border-radius: 3px;
-    background: #00BF96;
+    background: #3c7be0;
     display: inline-block;
 }
 
 #clockdiv div > span{
     padding: 15px;
     border-radius: 3px;
-    background: #00816A;
+    background: #556d93;
     display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    width: 50px;
 }
 
 .smalltext{
     padding-top: 5px;
     font-size: 16px;
+}
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
 }
