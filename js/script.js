@@ -3,11 +3,11 @@ angular.module('timerApp', [])
     $scope.hours = 0;
     $scope.minutes = 0;
     $scope.seconds = 0;
+    $scope.isRunning = false;
+    var timeinterval;
 
     // Greetings
     notify('Hey yo pigeon');
-
-
 
     $scope.editValue = function(value, number) {
       switch(value) {
@@ -67,37 +67,50 @@ angular.module('timerApp', [])
       };
     }
 
-    $scope.initializeClock = function() {
-      var waitTime = $scope.hours * 60 * 60 * 1000
-                        + $scope.minutes * 60 * 1000
-                        + $scope.seconds * 1000;
-      if(waitTime < 1000) {
-        return;
-      }
-      var endtime = Date.parse(new Date()) + waitTime;
-      function updateClock() {
-        var t = getTimeRemaining(endtime);
-
-        $scope.hours = t.hours;
-        $scope.minutes =  t.minutes;
-        $scope.seconds = t.seconds;
-
-        if (t.total <= 0) {
-          $interval.cancel(timeinterval);
-          notify('Wake up!');
+    $scope.toggleClock = function() {
+      if ($scope.isRunning) {
+        $interval.cancel(timeinterval);
+        $scope.isRunning = false;
+      } else {
+        var waitTime = $scope.hours * 60 * 60 * 1000
+                          + $scope.minutes * 60 * 1000
+                          + $scope.seconds * 1000;
+        if(waitTime < 1000) {
+          return;
         }
-      }
+        var endtime = Date.parse(new Date()) + waitTime;
+        function updateClock() {
+          var t = getTimeRemaining(endtime);
 
-      updateClock();
-      var timeinterval = $interval(updateClock, 1000);
+          $scope.hours = t.hours;
+          $scope.minutes =  t.minutes;
+          $scope.seconds = t.seconds;
+
+          if (t.total <= 0) {
+            $interval.cancel(timeinterval);
+            notify('Wake up!');
+          }
+        }
+
+        updateClock();
+        timeinterval = $interval(updateClock, 1000);
+        $scope.isRunning = true;
+      }
+    }
+
+    $scope.resetClock = function() {
+      $interval.cancel(timeinterval);
+      $scope.isRunning = false;
+      $scope.hours = 0;
+      $scope.minutes =  0;
+      $scope.seconds = 0;
     }
 
     function notify(text) {
       var voices = speechSynthesis.getVoices();
       var utterance = new SpeechSynthesisUtterance(text);
-      console.log(voices);
       utterance.voice = voices[2];
-      speechSynthesis.speak(utterance);
+      // speechSynthesis.speak(utterance);
     }
   })
   .filter('numberFixedLen', function () {

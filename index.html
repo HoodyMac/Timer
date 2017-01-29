@@ -8,26 +8,27 @@
   </head>
   <body ng-cloak ng-controller="TimerController">
     <div id="clockdiv">
-      <div>
+      <div class="valueCard">
         <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('hours', 1)"></i><br>
         <span class="hours">{{hours | numberFixedLen: 2}}</span><br>
         <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('hours', -1)"></i>
         <div class="smalltext">Hours</div>
       </div>
-      <div>
+      <div class="valueCard">
         <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('minutes', 1)"></i><br>
         <span class="minutes">{{minutes | numberFixedLen: 2}}</span><br>
         <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('minutes', -1)"></i>
         <div class="smalltext">Minutes</div>
       </div>
-      <div>
+      <div class="valueCard">
         <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('seconds', 1)"></i><br>
         <span class="seconds">{{seconds | numberFixedLen: 2}}</span><br>
         <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('seconds', -1)"></i>
         <div class="smalltext">Seconds</div>
       </div>
       <div class="controls">
-        <button ng-click="initializeClock()">Start</button>
+        <button ng-click="toggleClock()">{{ isRunning ? 'Pause' : 'Start' }}</button>
+        <button ng-click="resetClock()">Reset</button>
       </div>
     </div>
 
