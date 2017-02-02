@@ -6,9 +6,6 @@ angular.module('timerApp', [])
     $scope.isRunning = false;
     var timeinterval;
 
-    // Greetings
-    notify('Hey yo pigeon');
-
     $scope.editValue = function(value, number) {
       switch(value) {
         case 'hours':
@@ -110,7 +107,7 @@ angular.module('timerApp', [])
       var voices = speechSynthesis.getVoices();
       var utterance = new SpeechSynthesisUtterance(text);
       utterance.voice = voices[2];
-      // speechSynthesis.speak(utterance);
+      speechSynthesis.speak(utterance);
     }
   })
   .filter('numberFixedLen', function () {
