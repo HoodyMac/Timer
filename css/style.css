@@ -71,3 +71,40 @@ h1 {
 [x-ng-click] {
     cursor: pointer;
 }
+
+/* Tabs */
+
+.tabs-control-item {
+  display: inline-block;
+  margin-left: 10px;
+  background: #2c3e50;
+}
+
+.tabs-control-item:hover, .tabs-control-item .active {
+  background: #2ecc71
+}
+
+.tabs-control-item:first-child {
+  margin-left: 0;
+}
+
+.tabs-control-link {
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: block;
+  padding: 3px 7px;
+}
+
+.tabs-list {
+  border: 1px dashed #cccccc;
+}
+
+.tabs-item {
+  list-style: none outside none;
+  display: none;
+}
+
+.tabs-item.active {
+  display: block;
+}

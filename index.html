@@ -6,33 +6,56 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Timer</title>
   </head>
+
   <body ng-cloak ng-controller="TimerController">
-    <div id="clockdiv">
-      <div class="valueCard">
-        <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('hours', 1)"></i><br>
-        <span class="hours">{{hours | numberFixedLen: 2}}</span><br>
-        <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('hours', -1)"></i>
-        <div class="smalltext">Hours</div>
-      </div>
-      <div class="valueCard">
-        <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('minutes', 1)"></i><br>
-        <span class="minutes">{{minutes | numberFixedLen: 2}}</span><br>
-        <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('minutes', -1)"></i>
-        <div class="smalltext">Minutes</div>
-      </div>
-      <div class="valueCard">
-        <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('seconds', 1)"></i><br>
-        <span class="seconds">{{seconds | numberFixedLen: 2}}</span><br>
-        <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('seconds', -1)"></i>
-        <div class="smalltext">Seconds</div>
-      </div>
-      <div class="controls">
-        <button ng-click="toggleClock()">{{ isRunning ? 'Pause' : 'Start' }}</button>
-        <button ng-click="resetClock()">Reset</button>
-      </div>
+    <div class="tabs">
+      <ul class="tabs-controls">
+        <li class="tabs-controls-item active">
+          <a href="#" class="tabs-control-link">Timer</a>
+        </li>
+        <li class="tabs-controls-item active">
+          <a href="#" class="tabs-control-link">Stopwatch</a>
+        </li>
+      </ul>
+      <ul class="tabs-list">
+
+        <li class="tabs-item active">
+          <div id="clockdiv">
+            <div class="valueCard">
+              <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('hours', 1)"></i><br>
+              <span class="hours">{{hours | numberFixedLen: 2}}</span><br>
+              <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('hours', -1)"></i>
+              <div class="smalltext">Hours</div>
+            </div>
+            <div class="valueCard">
+              <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('minutes', 1)"></i><br>
+              <span class="minutes">{{minutes | numberFixedLen: 2}}</span><br>
+              <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('minutes', -1)"></i>
+              <div class="smalltext">Minutes</div>
+            </div>
+            <div class="valueCard">
+              <i class="fa fa-angle-up" aria-hidden="true" ng-click="editValue('seconds', 1)"></i><br>
+              <span class="seconds">{{seconds | numberFixedLen: 2}}</span><br>
+              <i class="fa fa-angle-down" aria-hidden="true" ng-click="editValue('seconds', -1)"></i>
+              <div class="smalltext">Seconds</div>
+            </div>
+            <div class="controls">
+              <button ng-click="toggleClock()">{{ isRunning ? 'Pause' : 'Start' }}</button>
+              <button ng-click="resetClock()">Reset</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="tabs-item">
+          <span>Placeholder for stopwatch</span>
+        </li>
+
+      </ul>
     </div>
 
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/interface.js"></script>
   </body>
 </html>
