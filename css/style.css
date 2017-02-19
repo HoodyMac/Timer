@@ -74,10 +74,24 @@ h1 {
 
 /* Tabs */
 
-.tabs-control-item {
+.tabs {
+  background-color: #B39DDB;
   display: inline-block;
-  margin-left: 10px;
-  background: #2c3e50;
+  padding: 5px;
+  /*min-width: 16%;*/
+}
+
+.tabs-controls {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+.tabs-controls-item {
+  display: inline-block;
+  margin-left: 2px;
+  background: #512DA8;
+  list-style: none;
 }
 
 .tabs-control-item:hover, .tabs-control-item .active {
@@ -97,7 +111,8 @@ h1 {
 }
 
 .tabs-list {
-  border: 1px dashed #cccccc;
+  padding: 0px;
+  margin: 5px 0px 0px 0px;
 }
 
 .tabs-item {
