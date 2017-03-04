@@ -37,6 +37,10 @@ h1 {
   width: 50px;
 }
 
+.miliseconds {
+  width: 75px !important;
+}
+
 .smalltext {
   padding-top: 5px;
   font-size: 16px;
