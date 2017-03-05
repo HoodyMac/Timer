@@ -127,3 +127,7 @@ h1 {
 .tabs-item.active {
   display: block;
 }
+
+.rounds ul {
+  list-style-type: none;
+}

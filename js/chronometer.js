@@ -1,11 +1,10 @@
 angular.module('timerApp')
-  .controller('ChronometerController', function($scope, $interval) {
+  .controller('ChronometerController', function($scope, $interval, $filter) {
     $scope.hours = 0;
     $scope.minutes = 0;
     $scope.seconds = 0;
     $scope.miliseconds = 0;
     $scope.isRunning = false;
-
     $scope.rounds = [];
 
     var startTime = 0;
@@ -38,15 +37,20 @@ angular.module('timerApp')
     $scope.resetRound = function() {
       if ($scope.isRunning) {
         // round
-        
+        timePassed = getTimePassed();
+        var round = $filter('numberFixedLen')(timePassed.hours, 2) + ':'
+                      + $filter('numberFixedLen')(timePassed.minutes, 2) + ':'
+                      + $filter('numberFixedLen')(timePassed.seconds, 2) + ':'
+                      + $filter('numberFixedLen')(timePassed.miliseconds, 3);
+        $scope.rounds.push(round);
       } else {
         // reset
         startTime = 0;
-
         $scope.hours = 0;
         $scope.minutes = 0;
         $scope.seconds = 0;
         $scope.miliseconds = 0;
+        $scope.rounds = [];
       }
     }
 
