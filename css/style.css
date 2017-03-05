@@ -39,6 +39,7 @@ h1 {
 
 .miliseconds {
   width: 75px !important;
+  animation-duration: 1s;
 }
 
 .smalltext {

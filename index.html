@@ -64,8 +64,13 @@
               <div class="smalltext">Miliseconds</div>
             </div>
             <div class="controls">
-              <button ng-click="toggleClock()">{{ isRunning ? 'Pause' : 'Start' }}</button>
-              <button ng-click="resetClock()">Reset</button>
+              <button ng-click="toggleChronometer()">{{ isRunning ? 'Pause' : 'Start' }}</button>
+              <button ng-click="resetRound()">{{ isRunning ? 'Round' : 'Reset' }}</button>
+            </div>
+            <div class="rounds">
+              <ul>
+                <li ng-repeat="round in rounds">{{round}}</li>
+              </ul>
             </div>
           </div>
         </li>
